@@ -1,4 +1,4 @@
-# Parte comune (tutti)
+# 1 Parte comune (tutti)
 Scrivere un programma per la generazione casuale di una targa (es. ZT459QA).
 Il primo, secondo, sesto e settimo charattere sono sempre char in formato minuscolo.
 Il terzo, quarto e quinto carattere sono sempre numeri da 1 a 9.
@@ -17,7 +17,7 @@ La lettera deve essere una consonante. nel caso in cui sia una vocale gestire la
 **Vincolo**: Usare il metodo di concatenazione per costruire la targa quindi no "+".
 
 
-# Parte specifica (2 gruppi)
+# 2 Parte specifica (2 gruppi)
 I seguenti punti sono da svolgere a seconda dell’appartenenza del gruppo assegnato in classe Giovedi 18 Dicembre. In comune a tutti, la costruzione di un menù che gestisca le tre funzioni.
 
 **Gruppo destra**
@@ -40,7 +40,7 @@ I seguenti punti sono da svolgere a seconda dell’appartenenza del gruppo asseg
 Il programma, quando eseguito, deve inizialmente stampare la targa generata casualmente e successivamente mostrare il menu, rimanendo in attesa di una scelta da parte dell’utente. L’utente può scegliere uno tra i tre comportamenti possibili (dipendono dal gruppo) e, successivamente alla sua scelta, il programma mostra il risultato dello specifico punto scelto.
 N.B. La targa generata inizialmente, non viene mai modificata dai punti specifici del menu, quindi chiamando tante volte la stessa funzione, si ha tutte le volte lo stesso risultato. 
 
-# Trasformazione in classe
+# 3 Trasformazione in classe
 Si vuole creare la classe TargaCasuale in modo da gestire in maniera più chiara e controllata tutto quello definito sopra (in un nuovo file). 
 
 La classe ha come **stato**:
