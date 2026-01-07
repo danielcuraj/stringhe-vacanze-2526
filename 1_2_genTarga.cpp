@@ -6,7 +6,7 @@
 using namespace std;
 
 
-const string stringaBase = "Vacanze2526";
+const string stringaBase="Vacanze2526";
 
 char chr(int num){
     return (char)num;
@@ -18,14 +18,18 @@ char toUpper(char c){
 
 bool controlloVoc(char c){
     c=toUpper(c);
-    return (c=='A' || c=='E' || c=='I' || c=='O' || c=='U');
+    if(c=='A' || c=='E' || c=='I' || c=='O' || c=='U'){
+        return true;
+    }else
+        return false;
+
 }
 
 /*la strategia che ho usato è quella di sostituire una vocale o un numero con la consonante C,
 perchè è una strategia semplice che non complica il codice*/
 char forzaCons(char c){
     c=toUpper(c);
-    if(!isalpha(c) || controlloVoc(c)){
+    if(!(c >= 'A' && c <= 'Z') || controlloVoc(c)){
       c = 'C';
     }
     return c;
@@ -41,17 +45,17 @@ char randomNum(){
 }
 
 char randomLettera(){
-    int ascii = rand() % 26 + 65;
-    return chr(ascii);
+    int a=rand()% 26 + 65;
+    return chr(a);
 }
 
 string generaTarga(){
 
     string targa = "";
-    char e1 = forzaCons(stringaBase[3]);
-    append(targa, e1);
-    char e2 = forzaCons(randomLettera());
-    append(targa, e2);
+    char x = forzaCons(stringaBase[3]);
+    append(targa, x);
+    char y = forzaCons(randomLettera());
+    append(targa, y);
     append(targa, randomNum());
     append(targa, randomNum());
     append(targa, randomNum());
@@ -64,16 +68,14 @@ string generaTarga(){
 
 //Sostituisce i numeri con 'X'
 string sostituisciX(string targa){
-    string nuova = targa;
-
+    string nuova=targa;
     for (int i = 0; i < nuova.length(); i++){
-        if (isdigit(nuova[i])){
-            nuova[i] = 'X';
+        if (nuova[i]>='0' && nuova[i]<='9'){
+            nuova[i]='X';
         }
     }
     return nuova;
 }
-
 //Inverte la targa utilizzando at()
 string invertiTarga(string targa){
     string invertita= "";
@@ -86,9 +88,9 @@ string invertiTarga(string targa){
 
 //Verifica se un numero è presente utilizzando find()
 bool cercaNumero(string targa, int numero){
-    char c=chr(numero + 48);
+    char c = char(numero + '0'); 
 
-    if(targa.find(c)!=string::npos){
+    if (targa.find(c)<targa.length()){
         return true;
     }
     return false;
