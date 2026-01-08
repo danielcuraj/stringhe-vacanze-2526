@@ -2,7 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-#include <cctype>
+
 using namespace std;
 
 
@@ -12,12 +12,10 @@ char chr(int num){
     return (char)num;
 }
 
-char toUpper(char c){
-    return toupper(c);
-}
+
 
 bool controlloVoc(char c){
-    c=toUpper(c);
+    c=toupper(c);
     if(c=='A' || c=='E' || c=='I' || c=='O' || c=='U'){
         return true;
     }else
@@ -28,16 +26,13 @@ bool controlloVoc(char c){
 /*la strategia che ho usato è quella di sostituire una vocale o un numero con la consonante C,
 perchè è una strategia semplice che non complica il codice*/
 char forzaCons(char c){
-    c=toUpper(c);
+    c=toupper(c);
     if(!(c >= 'A' && c <= 'Z') || controlloVoc(c)){
       c = 'C';
     }
     return c;
 }
 
-void append(string &s, char c){
-    s.append(1, c);
-}
 
 char randomNum(){
     int n =rand()% 9 + 1;
@@ -53,14 +48,14 @@ string generaTarga(){
 
     string targa = "";
     char x = forzaCons(stringaBase[3]);
-    append(targa, x);
+    targa.append(1, x);
     char y = forzaCons(randomLettera());
-    append(targa, y);
-    append(targa, randomNum());
-    append(targa, randomNum());
-    append(targa, randomNum());
-    append(targa, toUpper(randomLettera()));
-    append(targa, toUpper(randomLettera()));
+    targa.append(1, y);
+    targa.append(1, randomNum());
+    targa.append(1, randomNum());
+    targa.append(1, randomNum());
+    targa.append(1, toupper(randomLettera()));
+    targa.append(1, toupper(randomLettera()));
 
     return targa;
 }
@@ -88,7 +83,7 @@ string invertiTarga(string targa){
 
 //Verifica se un numero è presente utilizzando find()
 bool cercaNumero(string targa, int numero){
-    char c = char(numero + '0'); 
+    char c = char(numero + '0');
 
     if (targa.find(c)<targa.length()){
         return true;
